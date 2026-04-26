@@ -4,7 +4,7 @@
 
 Instead of spending hours and manually figuring out who should hit what, the planner runs your roster's mock data through many optimisation checks and algorithms that account for unit clashes between teams, the hit limit and boss HP thresholds across multiple difficulty levels. It then picks the plan that gets the most out of your roster, measured by how much of your union's combined damage potential was actually used and the efficiency of those players and the entire Union combined.
 
-<img width="2547" height="1259" alt="image" src="https://github.com/user-attachments/assets/408990f6-0d80-41e9-a401-fccb700f60b0" />
+<img width="2547" height="1259" alt="image" src="https://github.com/user-attachments/assets/408990f6-0d80-41e9-a401-fccb700f60b0" /> <br>
 <img width="3786" height="1893" alt="image" src="https://github.com/user-attachments/assets/821a8a14-7717-49b0-9c53-367af3c45596" />
 
 ---
@@ -104,7 +104,8 @@ Your worksheets must have the following column names exactly (case-sensitive):
 - `DMG`-— mock damage (accepts formats like `16.2b`, `16,200,000,000`, `16.200.000.000`)
 - `Available`-— `Yes` or `No` if the player is available or not
 
-<img width="1978" height="1748" alt="Screenshot 2026-04-26 220147" src="https://github.com/user-attachments/assets/20ac0994-8698-4e85-a3fe-1538d7848f07" />
+
+<br><img width="1578" height="1348" alt="Screenshot 2026-04-26 220147" src="https://github.com/user-attachments/assets/20ac0994-8698-4e85-a3fe-1538d7848f07" /><br> 
 
 **Hit Logs worksheet**:
 
@@ -113,7 +114,7 @@ Your worksheets must have the following column names exactly (case-sensitive):
 
 - `Boss Level` - accepts `Level 1`, `Level 2`, `Level 3`, `Level 4` or plain integers `1`–`4`
 
-<img width="1965" height="1752" alt="Screenshot 2026-04-26 220241" src="https://github.com/user-attachments/assets/f0ccb965-fae7-443c-aa1a-819a97e1fc02" />
+<br><img width="1565" height="1352" alt="Screenshot 2026-04-26 220241" src="https://github.com/user-attachments/assets/f0ccb965-fae7-443c-aa1a-819a97e1fc02" /><br>
 
 The above also assumes your spreadsheet supports flat data tables, and you have setup the functionality of automatically copying an entry made by a player (their mocks) into a flat data table that you would either export manually or load inside the Raid Planning app with a Google Service Account.
 
@@ -139,12 +140,12 @@ If you want to see how it works, click this [Google Spreadsheet](https://docs.go
 ### Generating a plan
 
 The plan gets automatically generated when you press "Load Mocks". If you have Hit Logs, you need to press "Load Hit Logs" and then "Refresh Plan" for the new plan to be generated centred around the confirmed hits.
-When making any config changes, you'll be prompted to "Refresh Plan" to apply the new changes.
+<br>When making any config changes, you'll be prompted to "Refresh Plan" to apply the new changes.
 
 ### Tabs
 
-- **Level 1–4** - per-level assignment breakdown showing which player hits which boss and with which team.
-- **Overview** - Assigned hits per player, player efficiency and meta unit usage to track who's using what.
+- **Level 1–4** - per-level assignment breakdown showing which player hits which boss, for how much damage and with which team.
+- **Overview** - Assigned hits per player, player efficiency and meta unit usage to track who's using what. The "Issues" column also shows conflicting units that may appear if the player did not mock a good variety of teams.
 - **Plan** - plan metrics (total damage, overshoot, damage lost, utilisation) and improvement tips.
 - **Export** - download the full plan as CSV, TSV, or copy the ready-made text to paste into your Google Spreadsheet
 - **Config** - changing boss names and weakness, overshot and safety buffers, meta units usage tracking and appearance settings.
@@ -160,7 +161,7 @@ Your configuration (sheet URL, boss names, buffer values, etc.) is saved automat
 
 ## License
 
-Copyright (c) 2026 Ven2k. All rights reserved.
+Copyright (c) 2026 Venarius2k. All rights reserved.
 
 This software may be downloaded and used free of charge. Redistribution of the original compiled application is permitted provided it is unmodified, and no fee is charged.
 
