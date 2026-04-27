@@ -5,7 +5,8 @@
 Instead of spending hours and manually figuring out who should hit what, the planner runs your roster's mock data through many optimisation checks and algorithms that account for unit clashes between teams, the hit limit and boss HP thresholds across multiple difficulty levels. It then picks the plan that gets the most out of your roster, measured by how much of your union's combined damage potential was actually used and the efficiency of those players and the entire Union combined.
 
 <img width="2547" height="1259" alt="image" src="https://github.com/user-attachments/assets/408990f6-0d80-41e9-a401-fccb700f60b0" /> <br>
-<img width="3786" height="1893" alt="image" src="https://github.com/user-attachments/assets/821a8a14-7717-49b0-9c53-367af3c45596" />
+<img width="2548" height="1267" alt="image" src="https://github.com/user-attachments/assets/38d4e2f2-70b6-46bb-8d80-925ba5ffbf82" /> <br>
+
 
 ---
 
@@ -46,7 +47,7 @@ If you want to proceed in setting up a Google Service Account, see below.
 
 ## Google Service Account setup
 
-### Step 1
+### Step 1 - Creating Google Service Account
 
 The app connects to your Google Sheet using a service account. This is the only hard part besides setting up your Google Spreadsheet.
 
@@ -83,7 +84,7 @@ The app reads from two worksheets in your Google Sheet, one for mocks and one fo
 
 1. If you are new to raid planning and you don't use any Spreadsheets right now, go for Option A.
 2. If you are actively managing spreadsheets and want to utilise this tool without using my templates, go for Option B.
-3. Alternatively, if you want to combine the templates and your existing Spreadsheet, I would recommend a mix of Option A and B. Copy the entire spreadsheet (File > Make a Copy), and then migrating your existing Spreadsheet sheets to the new template. (This is only because it will keep the formula links unbroken when making a copy of the template instead of migrating each sheet to your existing Spreadsheet)
+3. Alternatively, if you want to combine the templates and your existing Spreadsheet, I would recommend a mix of Option A and B. Copy the entire spreadsheet (File > Make a Copy), and then migrate your existing Spreadsheets to the new template. (This is only because it will keep the formula links unbroken when making a copy of the template instead of migrating each sheet to your existing Spreadsheet via Copy to > Existing spreadsheet)
 
 ### Option A - I want to copy the templates to use for myself
 
@@ -95,7 +96,7 @@ Your worksheets must have the following column names exactly (case-sensitive):
 
 **Mocks worksheet**:
 
-| Name | Boss | P1  | P2  | P3  | P4  | P5  | DMG | Available |
+| Name | Boss | DMG  | P1  | P2  | P3  | P4  | P5 | Available |
 | ---- | ---- | --- | --- | --- | --- | --- | --- | --------- |
 
 - `Name` - player name
@@ -109,7 +110,7 @@ Your worksheets must have the following column names exactly (case-sensitive):
 
 **Hit Logs worksheet**:
 
-| Name | Boss | Boss Level | P1  | P2  | P3  | P4  | P5  | DMG |
+| Name | Boss | Boss Level | DMG  | P1  | P2  | P3  | P4  | P5 |
 | ---- | ---- | ---------- | --- | --- | --- | --- | --- | --- |
 
 - `Boss Level` - accepts `Level 1`, `Level 2`, `Level 3`, `Level 4` or plain integers `1`–`4`
