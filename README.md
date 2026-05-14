@@ -4,9 +4,9 @@
 
 Instead of spending hours and manually figuring out who should hit what, the planner runs your roster's mock data through many optimisation checks and algorithms that account for unit clashes between teams, the hit limit and boss HP thresholds across multiple difficulty levels. It then picks the plan that gets the most out of your roster, measured by how much of your union's combined damage potential was actually used and the efficiency of those players and the entire Union combined.
 
-<img width="2547" height="1259" alt="image" src="https://github.com/user-attachments/assets/408990f6-0d80-41e9-a401-fccb700f60b0" /> <br>
-<img width="2548" height="1267" alt="image" src="https://github.com/user-attachments/assets/38d4e2f2-70b6-46bb-8d80-925ba5ffbf82" /> <br>
-
+<img width="2548" height="1265" alt="image" src="https://github.com/user-attachments/assets/7d416d6b-01e5-4808-9fee-0bf77c9c4cae" /><br>
+<br><img width="3246" height="1653" alt="image" src="https://github.com/user-attachments/assets/e0deaa83-193f-4833-a595-344d25082d9c" /><br>
+<br><img width="2549" height="1265" alt="image" src="https://github.com/user-attachments/assets/fca9cf44-5bc8-4a9f-aac4-2c8a76d8f80a" /><br>
 
 ---
 
@@ -18,32 +18,39 @@ Instead of spending hours and manually figuring out who should hit what, the pla
 - Efficiency statistics and unit usage breakdowns, to help you diagnose problematic players that you might otherwise miss when manually planning, best used if you want to improve player mocks and deal more damage.
 - Exporting functionality to CSV/TSV or Google Spreadsheet.
 - Completed hits functionality support. Once your players confirm a hit, if in an event it's a big overshoot or undershoot, the planner can rerun and re-optimise to find a better plan alternative.
+- Manual lock support. You can lock a specific player to a specific boss and level - either from one of their existing mocks or a custom entry - and the planner rebuilds the rest of the plan around it.
 
 ---
 
-## Download
+## Download & Installation
 
-Get the latest release from the [Releases](https://github.com/Venarius2k/Nikke-Union-Raid-Planner/releases) page.
+Get the latest release from the [Releases](https://github.com/Venarius2k/Nikke-Union-Raid-Planner/releases) page and download the source files.
 
-> Download `Nikke Union Raid Planner(NURP).exe` and run it — no installation required.
-
----
-
-## Requirements
+### Requirements
 
 - Windows 10 or later
+- Python 3.10 or later — download from [python.org](https://www.python.org/downloads/)
 - A Google account with access to Google Sheets (optional, see below)
 - A Google Cloud service account JSON file (optional, see below)
 
+### Setup
+
+1. Download and extract the release zip into a folder.
+2. Open a terminal in that folder and run:
+   ```
+   pip install -r .\requirements.txt
+   ```
+3. Once installed, double-click **run.bat** to launch the app.
+
 ---
 
-## I don't want to set up Google Service Account, can I still use this?
+## I don't want to set up a Google Service Account, can I still use this?
 
-You can upload .CSV files that contain mock/hit log data instead of needing to connect a Google Service Account. Assuming the .CSV file that is uploaded contains correct columns (See `Spreadsheet Setup` guide below), it will work out of the box.
+You can upload CSV files containing mock/hit log data instead of connecting a Google Service Account. Assuming the CSV file that is uploaded contains correct columns (See `Spreadsheet Setup` guide below), it will work out of the box.
 
-This however, is not recommended as you will have to constantly export and upload the .CSV file during every hit log or mock, which can take time and allow you to make mistakes.
+This, however, is not recommended as you will have to constantly export and upload the .CSV file during every hit log or mock, which can take time and allow you to make mistakes.
 
-If you want to proceed in setting up a Google Service Account, see below.
+If you want to proceed with setting up a Google Service Account, see below.
 
 ## Google Service Account setup
 
@@ -60,7 +67,7 @@ See below for written steps or click this [Youtube link](https://www.youtube.com
 5. Go to **APIs & Services → Credentials → Create Credentials → Service Account**
 6. Fill in your Service Account name (eg, Nikke Raid Planner), go to permissions, click **"Basic"** and select **"Viewer"** access.
 7. Click the service account you just created → **Keys** tab → **Add Key → Create new key → JSON**, once created, it will automatically be saved to your downloads folder.
-8. Drag the newly created JSON file into your custom-made folder where you will keep your Nikke Union Raid Planner.exe file.
+8. Move the newly created JSON file into the same folder as the app.
 
 Please keep this JSON file secure and never share or distribute it.
 
@@ -72,7 +79,7 @@ Please keep this JSON file secure and never share or distribute it.
 
 ### Step 3. Link the service account in the app
 
-1. Launch the app via the .exe file provided and go to the **Config** tab
+1. Launch the app by double-clicking **run.bat** and go to the **Config** tab
 2. Under **Connection → Service Account JSON**, click **Browse** and select your `.json` file (or paste the full path manually)
 3. A green tick confirms it loaded correctly
 
@@ -96,7 +103,7 @@ Your worksheets must have the following column names exactly (case-sensitive):
 
 **Mocks worksheet**:
 
-| Name | Boss | DMG  | P1  | P2  | P3  | P4  | P5 | Available |
+| Name | Boss | DMG | P1  | P2  | P3  | P4  | P5  | Available |
 | ---- | ---- | --- | --- | --- | --- | --- | --- | --------- |
 
 - `Name` - player name
@@ -105,12 +112,11 @@ Your worksheets must have the following column names exactly (case-sensitive):
 - `DMG`-— mock damage (accepts formats like `16.2b`, `16,200,000,000`, `16.200.000.000`)
 - `Available`-— `Yes` or `No` if the player is available or not
 
-
-<br><img width="1578" height="1348" alt="Screenshot 2026-04-26 220147" src="https://github.com/user-attachments/assets/20ac0994-8698-4e85-a3fe-1538d7848f07" /><br> 
+<br><img width="1578" height="1348" alt="Screenshot 2026-04-26 220147" src="https://github.com/user-attachments/assets/20ac0994-8698-4e85-a3fe-1538d7848f07" /><br>
 
 **Hit Logs worksheet**:
 
-| Name | Boss | Boss Level | DMG  | P1  | P2  | P3  | P4  | P5 |
+| Name | Boss | Boss Level | DMG | P1  | P2  | P3  | P4  | P5  |
 | ---- | ---- | ---------- | --- | --- | --- | --- | --- | --- |
 
 - `Boss Level` - accepts `Level 1`, `Level 2`, `Level 3`, `Level 4` or plain integers `1`–`4`
@@ -136,12 +142,23 @@ If you want to see how it works, click this [Google Spreadsheet](https://docs.go
 
 - **Load Mocks** - loads mock data from your Google Sheet.
 - **Load Hit Logs** - loads confirmed hits from the hit log worksheet. These are locked in and cannot be changed by the planner. The planner builds a plan around the confirmed hits, if any. Click "Clear All Loaded Data" to remove them and load the Mocks again to regenerate the plan
-- **Load from CSV** - alternative to Google Sheets. Export your mocks as a CSV and load them directly. Make sure the column names match the requirement (see Step 2)
+- **Load from CSV** - alternative to Google Sheets. Export your mocks as a CSV and load them directly. Make sure the column names match the requirement [Spreadsheet Setup](#spreadsheets-setup)
 
 ### Generating a plan
 
-The plan gets automatically generated when you press "Load Mocks". If you have Hit Logs, you need to press "Load Hit Logs" and then "Refresh Plan" for the new plan to be generated centred around the confirmed hits.
+The plan gets automatically generated when you press **"Load Mocks"**. If you have Hit Logs, you need to press "Load Hit Logs" and then "Refresh Plan" for the new plan to be generated centred around the confirmed hits.
 <br>When making any config changes, you'll be prompted to "Refresh Plan" to apply the new changes.
+
+### Manual locks
+
+Click **"Add Manual Lock"** in the sidebar to open the Manual Locks window, then pick the level, boss, and player. You can either select one of that player's existing mocks or create a custom entry by typing the damage and their 5 units.<br>
+When you successfully add it, the raid plan will rebuild around the newly added entry.
+
+Once locked, the planner rebuilds the rest of the plan around it. Locked hits appear in yellow under the boss card. The
+
+When adding a custom entry, the system will check for unit clashes and will warn you if a lock you are trying to make has a unit that's being used elsewhere.
+
+To remove a lock, open the window again (the button will say **"Manage Manual Locks"** if there's a custom mock already added) and press **Remove** next to the entry at the top.
 
 ### Tabs
 
@@ -150,13 +167,12 @@ The plan gets automatically generated when you press "Load Mocks". If you have H
 - **Plan** - plan metrics (total damage, overshoot, damage lost, utilisation) and improvement tips.
 - **Export** - download the full plan as CSV, TSV, or copy the ready-made text to paste into your Google Spreadsheet
 - **Config** - changing boss names and weakness, overshot and safety buffers, meta units usage tracking and appearance settings.
-- **Settings** - font size and display preferences.
 
 ---
 
 ## Settings & Config
 
-Your configuration (sheet URL, boss names, buffer values, etc.) is saved automatically to `settings.json` in the same folder as the exe.
+Your configuration (sheet URL, boss names, buffer values, etc.) is saved automatically to `settings.json` in the same folder as the app.
 
 ---
 
@@ -164,9 +180,9 @@ Your configuration (sheet URL, boss names, buffer values, etc.) is saved automat
 
 Copyright (c) 2026 Venarius2k. All rights reserved.
 
-This software may be downloaded and used free of charge. Redistribution of the original compiled application is permitted provided it is unmodified, and no fee is charged.
+You are free to download and use this software for personal, non-commercial purposes.
 
-Decompiling, reverse engineering, disassembling, or otherwise attempting to derive the source code of this software is strictly prohibited. The source code may not be copied, modified, or distributed in any form.
+You may not redistribute, resell, or repackage this software in any form, modified or otherwise.
 
 ---
 
@@ -175,5 +191,3 @@ Decompiling, reverse engineering, disassembling, or otherwise attempting to deri
 - **Discord** — ven2k
 - **Bug reports** — [GitHub Issues](https://github.com/Venarius2k/Nikke-Union-Raid-Planner/issues)
 - **Support the project** — [Ko-fi](https://ko-fi.com/ven2k)
-
-_All data loaded into this app stays on your machine and is never shared with anyone._
