@@ -154,7 +154,7 @@ The plan gets automatically generated when you press **"Load Mocks"**. If you ha
 Click **"Add Manual Lock"** in the sidebar to open the Manual Locks window, then pick the level, boss, and player. You can either select one of that player's existing mocks or create a custom entry by typing the damage and their 5 units.<br>
 When you successfully add it, the raid plan will rebuild around the newly added entry.
 
-Once locked, the planner rebuilds the rest of the plan around it. Locked hits appear in yellow under the boss card. The
+Once locked, the planner rebuilds the rest of the plan around it. Locked hits appear in yellow under the boss card.
 
 When adding a custom entry, the system will check for unit clashes and will warn you if a lock you are trying to make has a unit that's being used elsewhere.
 
